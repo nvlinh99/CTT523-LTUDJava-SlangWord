@@ -1,7 +1,5 @@
 package SlangWord;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -45,6 +43,9 @@ public class SlangWord {
             switch (option) {
                 case "1":
                 	Functions.searchBySlangWord();                    
+                    break;
+                case "2":
+                	Functions.searchByDefinition();                    
                     break;
             }
             if (exitFlag) {

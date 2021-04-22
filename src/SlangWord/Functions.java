@@ -54,13 +54,36 @@ public class Functions {
 		System.out.print(">> Type word to find: ");
         String sWord = inputWord.nextLine();
         sWord = sWord.toUpperCase();
-        List<String> rsl = hashMap.get(sWord);
+        List<String> def = hashMap.get(sWord);
         historySlangWord.add(sWord);
-        if (rsl == null) {
+        if (def == null) {
         	System.out.println("Can't find: " + sWord);
         }
         else {
-        	System.out.println("=> Meaning: " + rsl);
+        	System.out.println("=> Meaning: " + def);
+        }
+	}
+	
+	public static void searchByDefinition() {
+		System.out.println(">> Type to find Slang word: ");
+		String def = inputWord.nextLine();
+        historySlangWord.add(def);
+        List<String> sWords = new ArrayList<>();
+        for (String i: hashMap.keySet())
+        {
+            if (hashMap.get(i).contains(def)){
+            	sWords.add(i);
+            }
+        }
+        if(sWords.isEmpty()) {
+        	System.out.println("No Slang Word found!");
+        }
+        else {
+	        System.out.println(">> List Slang Word <<");
+	        for (String sWord: sWords) {
+	        	System.out.println(sWord);
+	        }
+	        System.out.println("\n");
         }
 	}
 }
