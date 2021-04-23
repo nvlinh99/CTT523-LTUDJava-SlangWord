@@ -18,7 +18,7 @@ public class SlangWord {
 		System.out.println("--------------------------------------");
         System.out.println("|1. Search by Slang Word.");
         System.out.println("|2. Search by Definition.");
-        System.out.println("|3. Show history.");
+        System.out.println("|3. Show search history.");
         System.out.println("|4. Add a Slang Word.");
         System.out.println("|5. Edit a Slang Word.");
         System.out.println("|6. Delete a Slang Word.");
@@ -46,6 +46,9 @@ public class SlangWord {
                     break;
                 case "2":
                 	Functions.searchByDefinition();                    
+                    break;
+                case "3":
+                	Functions.showSearchHistory();                   
                     break;
             }
             if (exitFlag) {

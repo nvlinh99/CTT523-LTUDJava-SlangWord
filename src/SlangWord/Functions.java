@@ -67,7 +67,6 @@ public class Functions {
 	public static void searchByDefinition() {
 		System.out.println(">> Type to find Slang word: ");
 		String def = inputWord.nextLine();
-        historySlangWord.add(def);
         List<String> sWords = new ArrayList<>();
         for (String i: hashMap.keySet())
         {
@@ -85,5 +84,18 @@ public class Functions {
 	        }
 	        System.out.println("\n");
         }
+	}
+	
+	public static void showSearchHistory() {
+		if(historySlangWord.isEmpty()) {
+			System.out.println(">> NO DATA!");
+		}
+		else {
+			System.out.println(">> Search History: ");
+			for (String sWord: historySlangWord) {
+				System.out.println(sWord);
+			}
+		}
+		
 	}
 }
