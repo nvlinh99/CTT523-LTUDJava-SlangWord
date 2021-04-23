@@ -50,6 +50,9 @@ public class SlangWord {
                 case "3":
                 	Functions.showSearchHistory();                   
                     break;
+                case "4":
+                	Functions.addNewSlangWord();                  
+                    break;
             }
             if (exitFlag) {
                 break;

@@ -96,6 +96,37 @@ public class Functions {
 				System.out.println(sWord);
 			}
 		}
-		
+	}
+	
+	public static void addNewSlangWord() {
+		System.out.println("What is your new Slang Word: ");
+        String newSWord = inputWord.nextLine();
+        newSWord = newSWord.toUpperCase();
+        System.out.println("What is the definition: ");
+        String newDef = inputWord.nextLine();
+        List<String> defList = new ArrayList<>();
+        defList.add(newDef);
+        if(hashMap.containsKey(newSWord)) {
+        	System.out.println(">> Slang word already exists!");
+        	System.out.println(">> Overwrite? (Y/N): ");
+            String override = inputWord.nextLine();
+            if (override.equals("Y") || override.equals("y")) {
+            	hashMap.put(newSWord, defList);
+            }
+            else
+            {
+                List<String> duplicateList = hashMap.get(newSWord);
+                for (String Sword: duplicateList)
+                {
+                    defList.add(Sword);
+                }
+                hashMap.put(newSWord, defList);
+            }
+        }
+        else
+        {
+        	hashMap.put(newSWord, defList);
+            System.out.println("Add New Slang Word Successfully");
+        }
 	}
 }
