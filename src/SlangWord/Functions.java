@@ -1,8 +1,10 @@
 package SlangWord;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -98,6 +100,42 @@ public class Functions {
 		}
 	}
 	
+	public static void updateDataToFile() {		
+		BufferedWriter bw = null;
+		FileWriter fw = null;
+        try {
+        	fw = new FileWriter(new File(SLANG_WORD_INPUT));
+   			bw = new BufferedWriter(fw);
+   			for (String i: hashMap.keySet())
+            {
+                fw.write(i + "`");
+                List<String> data = hashMap.get(i);
+                for (int t = 0; t < data.size(); t++)
+                {
+                    fw.write(data.get(t));
+                    if (t+1< data.size()) {
+                    	fw.write("|");
+                    }
+                }
+                fw.write("\n");
+            }
+        }
+        catch (IOException e) {
+        	System.out.println(">> LOI: Update file that bai! \n");
+            e.printStackTrace();
+        } finally {
+            try {
+                if (bw != null && fw != null) {
+                    fw.close();
+                	bw.close();
+                    
+                }
+            } catch (IOException crunchifyException) {
+                crunchifyException.printStackTrace();
+            }
+        }
+    }
+	
 	public static void addNewSlangWord() {
 		System.out.println("What is your new Slang Word: ");
         String newSWord = inputWord.nextLine();
@@ -112,6 +150,7 @@ public class Functions {
             String override = inputWord.nextLine();
             if (override.equals("Y") || override.equals("y")) {
             	hashMap.put(newSWord, defList);
+            	updateDataToFile();
             }
             else
             {
@@ -121,11 +160,13 @@ public class Functions {
                     defList.add(Sword);
                 }
                 hashMap.put(newSWord, defList);
+                updateDataToFile();
             }
         }
         else
         {
         	hashMap.put(newSWord, defList);
+        	updateDataToFile();
             System.out.println("Add New Slang Word Successfully");
         }
 	}
