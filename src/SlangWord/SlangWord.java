@@ -53,6 +53,9 @@ public class SlangWord {
                 case "4":
                 	Functions.addNewSlangWord();                  
                     break;
+                case "5":
+                	Functions.editSlangWord();                  
+                    break;
             }
             if (exitFlag) {
                 break;

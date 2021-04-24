@@ -1920,6 +1920,7 @@ RC`Random Chat| Radio Controlled
 RD`Real Deal
 RE`Regarding
 RH`Road Head
+LINHNE`Linh Nguyen|Linh Neee|LinhNguyen|Tui la Linh Ne
 HUCKLEBERRY`The man you're looking for
 RL`Real Life
 RM`Remake
@@ -4873,8 +4874,8 @@ LIG`Let It Go
 BLEM`High on marijuana
 DUTCH`Joint| Split the cost
 LIL`Little
-SMTP`Simple Mail Transfer Protocol
 LIN`Nguyen Vu Linh
+SMTP`Simple Mail Transfer Protocol
 BLEH`boredom
 LIQ`Liquor
 LIT`Intoxicated| stoned

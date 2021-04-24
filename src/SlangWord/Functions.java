@@ -36,7 +36,6 @@ public class Functions {
 	                hashMap.put(str[0], child);
 	            }
 	        }
-			System.out.println("Load file: Ok!\n");
 		}
 		catch (IOException e) {
         	System.out.println("LOI: Load file that bai! \n");
@@ -169,5 +168,101 @@ public class Functions {
         	updateDataToFile();
             System.out.println("Add New Slang Word Successfully");
         }
+	}
+	
+	public static void editSlangWord() {
+		System.out.print(">> Type Slang word to edit: ");
+		String sWord = inputWord.nextLine();
+		sWord = sWord.toUpperCase();
+		if(!hashMap.containsKey(sWord)) {
+			System.out.println(sWord + " not found!");
+		}
+		
+		List<String> defList = hashMap.get(sWord);
+		List<String> tmpDefList = new ArrayList<>();
+		
+		if(defList.isEmpty()) {
+			System.out.println("This Slang word dont have any definition!");
+		}
+		
+		for(String def: defList) {
+			tmpDefList.add(def);
+		}
+		
+		System.out.println("\n--------------------------------------");
+		System.out.println(">> MENU EDIT <<");
+		System.out.println("--------------------------------------");
+        System.out.println("|1. Edit Slang word.");
+        System.out.println("|2. Edit Definition.");
+        System.out.println("--------------------------------------\n");
+        System.out.print(">> Your option: ");
+        String option = inputWord.nextLine();
+        switch (option) {
+	        case "1":
+	        	System.out.print(">> Type new name of Slang word: ");   
+	        	String newSWord = inputWord.nextLine();
+	        	newSWord = newSWord.toUpperCase();
+	        	if(!newSWord.equals(sWord)) {
+	        		hashMap.put(newSWord, defList);
+	        		updateDataToFile();
+	        		System.out.print("Notice: Update Slang word successfull! ");
+	        	}
+	        	else {
+	        		System.out.println("Error: New Slang word must be different old Slang word.");
+	        		break;
+	        	}
+	        	break;
+	        case "2":
+				int count = 1;
+				System.out.println("\n--------------------------------------");
+				System.out.println(">> LIST DEFINITIONS <<");
+				System.out.println("--------------------------------------");
+				for (String def: defList){
+				    System.out.println(count + " - " + def);
+				    count++;
+				}
+		        System.out.println("--------------------------------------\n");
+				System.out.print(">> Which definition you want to edit: ");
+				int defIndex = inputWord.nextInt();
+				System.out.flush();
+				System.out.println("\n--------------------------------------");
+				System.out.println(">> OPTION EDIT DEFINITION <<");
+				System.out.println("--------------------------------------");
+		        System.out.println("|1. Add definition.");
+		        System.out.println("|2. Update definition.");
+		        System.out.println("|2. Delelte definition.");
+		        System.out.println("--------------------------------------\n");
+				System.out.print(">> Choose: ");
+				int defOption = inputWord.nextInt();
+				inputWord.nextLine();
+				if (defOption == 1) {
+					System.out.print(">> Type new definition: ");
+				    String newDefi = inputWord.nextLine();
+				    tmpDefList.add(newDefi);
+				    hashMap.put(sWord, tmpDefList);
+				    updateDataToFile();
+				    System.out.print("Notice: Add definition successfull! ");
+				}
+				else if (defOption == 2){
+					tmpDefList.remove(defIndex - 1);
+				    System.out.print(">> Type new definition : ");
+				    String newDefi = inputWord.nextLine();
+				    tmpDefList.add(newDefi);
+				    hashMap.put(sWord, tmpDefList);
+				    updateDataToFile();
+				    System.out.print("Notice: Update definition successfull! ");
+				}
+				else if (defOption == 3){
+					if (tmpDefList.size()==1) {
+				        System.out.println("Can't delete this definition!");
+				        break;
+				    }
+				    tmpDefList.remove(defIndex - 1);
+				    hashMap.put(sWord, tmpDefList);
+				    updateDataToFile();
+				    System.out.print("Notice: Delete definition successfull! ");
+				}      	
+				break;
+        	}
 	}
 }
