@@ -1920,7 +1920,6 @@ RC`Random Chat| Radio Controlled
 RD`Real Deal
 RE`Regarding
 RH`Road Head
-LINHNE`Linh Nguyen|Linh Neee|LinhNguyen|Tui la Linh Ne
 HUCKLEBERRY`The man you're looking for
 RL`Real Life
 RM`Remake

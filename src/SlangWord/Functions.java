@@ -265,4 +265,22 @@ public class Functions {
 				break;
         	}
 	}
+	
+	public static void deleteSlangWord() {
+		System.out.print(">> Type Slang word to remove: ");
+        String sWord = inputWord.nextLine();
+        if (hashMap.containsKey(sWord))
+        {
+            System.out.println("Confirm to delete:(Y/N)");
+            String delFlg = inputWord.nextLine();
+            if (delFlg.equals("Y") || delFlg.equals("y") ) {
+            	hashMap.remove(sWord);
+            	updateDataToFile();
+			    System.out.print("Notice: Delete Slang word successfull! ");
+            }
+        }
+        else {
+        	System.out.print("Not found: " + sWord);
+        }
+	}
 }

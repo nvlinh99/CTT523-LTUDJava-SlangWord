@@ -13,7 +13,7 @@ public class SlangWord {
 	public static Scanner scan = new Scanner(System.in);
     
 	public static void showMenu(){
-		System.out.println("\n--------------------------------------");
+		System.out.println("--------------------------------------");
 		System.out.println(">> WELCOME TO SLANG WORD DICTIONARY!<<");
 		System.out.println("--------------------------------------");
         System.out.println("|1. Search by Slang Word.");
@@ -56,10 +56,14 @@ public class SlangWord {
                 case "5":
                 	Functions.editSlangWord();                  
                     break;
+                case "6":
+                	Functions.deleteSlangWord();                  
+                    break;
             }
             if (exitFlag) {
                 break;
             }
+            System.out.println();
             showMenu();
         }
 		System.out.println("Hallo");
