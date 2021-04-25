@@ -19,6 +19,7 @@ import java.util.Scanner;
 
 public class Functions {
 	private static final String SLANG_WORD_INPUT = "./Data/slang.txt";
+	private static final String SLANG_WORD_INPUT_DEFAULT = "./Data/default_slang.txt";
 	public static HashMap<String,List<String>> hashMap = new HashMap<String,List<String>>();
 	public static List<String> historySlangWord=new ArrayList<>();
 	public static Scanner inputWord = new Scanner(System.in);
@@ -38,12 +39,13 @@ public class Functions {
 	        }
 		}
 		catch (IOException e) {
-        	System.out.println("LOI: Load file that bai! \n");
+        	System.out.println("Error: load data fail! \n");
             e.printStackTrace();
         } finally {
             try {
                 if (br != null) {
                     br.close();
+                    System.out.println("Load complete!\n");
                 }
             } catch (IOException crunchifyException) {
                 crunchifyException.printStackTrace();
@@ -281,6 +283,35 @@ public class Functions {
         }
         else {
         	System.out.print("Not found: " + sWord);
+        }
+	}
+	
+	public static void resetSlangWord() {
+		BufferedReader br = null;
+		try {
+			br = new BufferedReader(new FileReader(new File(SLANG_WORD_INPUT_DEFAULT)));
+			String line = null;
+			while((line = br.readLine()) != null) {
+	            if(line.contains("`")){
+	                String[] str = line.split("`");
+	                String[] split_str = str[1].split("\\|");
+	                List<String> child = Arrays.asList(split_str);
+	                hashMap.put(str[0], child);
+	            }
+	        }
+		}
+		catch (IOException e) {
+        	System.out.println("Error: Reset fail! \n");
+            e.printStackTrace();
+        } finally {
+            try {
+                if (br != null) {
+                    br.close();
+                    System.out.println("Reset Slang word complete!\n");
+                }
+            } catch (IOException crunchifyException) {
+                crunchifyException.printStackTrace();
+            }
         }
 	}
 }

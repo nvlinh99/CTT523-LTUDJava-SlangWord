@@ -59,6 +59,9 @@ public class SlangWord {
                 case "6":
                 	Functions.deleteSlangWord();                  
                     break;
+                case "7":
+                	Functions.resetSlangWord();                  
+                    break;
             }
             if (exitFlag) {
                 break;
