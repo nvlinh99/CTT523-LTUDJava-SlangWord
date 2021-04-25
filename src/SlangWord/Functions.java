@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -313,5 +314,32 @@ public class Functions {
                 crunchifyException.printStackTrace();
             }
         }
+	}
+	
+	public static String randomSlangWord(){
+        int pos = 0;
+        Random rd = new Random();
+        int randInt = rd.nextInt(hashMap.size());
+        String rsl = "";
+        for (String i: hashMap.keySet())
+        {
+            if (pos == randInt) {
+                rsl = i;
+                break;
+            } else {
+            	pos++;
+            }
+        }
+        return rsl;
+    }
+	public static void printRandomSlangWord() {
+		System.out.print("A Random Slang Word: ");
+		String rdSWord = randomSlangWord();
+	    System.out.println(rdSWord);
+	    System.out.print("Definitions: ");
+	    List<String> defList = hashMap.get(rdSWord);
+	    for(String def : defList) {
+	    	System.out.println(def);
+	    }
 	}
 }

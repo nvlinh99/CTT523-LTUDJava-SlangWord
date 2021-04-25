@@ -1,5 +1,6 @@
 package SlangWord;
 
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -61,6 +62,9 @@ public class SlangWord {
                     break;
                 case "7":
                 	Functions.resetSlangWord();                  
+                    break;
+                case "8":
+                	Functions.printRandomSlangWord();                  
                     break;
             }
             if (exitFlag) {
