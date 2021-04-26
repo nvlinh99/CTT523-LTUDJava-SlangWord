@@ -8,6 +8,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
@@ -332,14 +333,62 @@ public class Functions {
         }
         return rsl;
     }
+	
 	public static void printRandomSlangWord() {
 		System.out.print("A Random Slang Word: ");
 		String rdSWord = randomSlangWord();
-	    System.out.println(rdSWord);
-	    System.out.print("Definitions: ");
+	    System.out.print(rdSWord);
+	    System.out.println(">>Definitions: ");
 	    List<String> defList = hashMap.get(rdSWord);
 	    for(String def : defList) {
 	    	System.out.println(def);
 	    }
+	}
+	
+	public static void quizFindDefinition() {
+		Random rd = new Random();
+        
+		List<String> ansList = new ArrayList<>();
+        List<String> tempList = new ArrayList<>();
+        List<String> defList = new ArrayList<>();
+        
+        String sWord1 = randomSlangWord();
+        String sWord2 = randomSlangWord();
+        String sWord3 = randomSlangWord();
+        String sWord4 = randomSlangWord();
+        
+        tempList.add(sWord2);
+        tempList.add(sWord3);
+        tempList.add(sWord4);
+        
+        String sWordPicked = sWord1;
+		List<String> defListPicked = hashMap.get(sWord1);
+		String defPicked = defListPicked.get(rd.nextInt(defListPicked.size()));
+		ansList.add(defPicked);
+        
+        for(String sWord: tempList) {
+        	defList = hashMap.get(sWord);
+        	String def = defList.get(rd.nextInt(defList.size()));
+        	ansList.add(def);
+        }
+        
+        System.out.println("Question: Find Definition of: " + sWordPicked);
+        Collections.shuffle(ansList);
+        
+        for(int i = 0; i < ansList.size(); i++) {
+        	System.out.println(i + " - " + ansList.get(i));
+        }
+        
+        System.out.print("Your answer: ");
+        int yourAns = inputWord.nextInt();
+        System.out.println();
+        if(ansList.get(yourAns).equals(defPicked) ) {
+        	System.out.println("Yeahh, Correct!");
+        }
+        else {
+        	System.out.println("Incorrect!");
+        	System.out.println("The right answer is: " + defPicked);
+        }
+        
 	}
 }
