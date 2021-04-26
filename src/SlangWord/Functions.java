@@ -389,6 +389,43 @@ public class Functions {
         	System.out.println("Incorrect!");
         	System.out.println("The right answer is: " + defPicked);
         }
+	}
+	
+	public static void quizFindSlangWord() {
+		Random rd = new Random();
+		List<String> ansList = new ArrayList<>();
         
+        String sWord1 = randomSlangWord();
+        String sWord2 = randomSlangWord();
+        String sWord3 = randomSlangWord();
+        String sWord4 = randomSlangWord();
+        
+        ansList.add(sWord2);
+        ansList.add(sWord3);
+        ansList.add(sWord4);
+        
+        String sWordPicked = sWord1;
+		List<String> defListPicked = hashMap.get(sWord1);
+		String defPicked = defListPicked.get(rd.nextInt(defListPicked.size()));
+		
+		ansList.add(sWordPicked);
+        
+        System.out.println("Question > Find Slang word of: " + defPicked);
+        Collections.shuffle(ansList);
+        
+        for(int i = 0; i < ansList.size(); i++) {
+        	System.out.println(i + " - " + ansList.get(i));
+        }
+        
+        System.out.print("Your answer: ");
+        int yourAns = inputWord.nextInt();
+        System.out.println();
+        if(ansList.get(yourAns).equals(sWordPicked) ) {
+        	System.out.println("Yeahhh, Correct!");
+        }
+        else {
+        	System.out.println("Incorrect!");
+        	System.out.println(">> The right answer is: " + sWordPicked);
+        }
 	}
 }

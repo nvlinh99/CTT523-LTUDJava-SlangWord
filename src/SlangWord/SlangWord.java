@@ -67,7 +67,10 @@ public class SlangWord {
                     break;
                 case "9":
                 	Functions.quizFindDefinition();                  
-                    break; 
+                    break;
+                case "10":
+                	Functions.quizFindSlangWord();                  
+                    break;
             }
             if (exitFlag) {
                 break;
