@@ -24,8 +24,8 @@ public class SlangWord {
         System.out.println("|6. Delete a Slang Word.");
         System.out.println("|7. Reset list to default.");
         System.out.println("|8. Random a Slangword.");
-        System.out.println("|9. Quiz: Find word with Slang Word.");
-        System.out.println("|10. Quiz: Find word with Definition.");
+        System.out.println("|9. Quiz game: Find Definition with Slangwords.");
+        System.out.println("|10. Quiz game: Find Slang Word with Definitions.");
         System.out.println("|11. Clear History.");
         System.out.println("|12. Exit.");
         System.out.println("--------------------------------------\n");
@@ -35,7 +35,6 @@ public class SlangWord {
 		// TODO Auto-generated method stub
 		Functions.loadDataFromFile();
 		String option = null;
-        boolean exitFlag = false;
 		showMenu();
 		while (true) {
             System.out.printf(">> Your option: ");
@@ -71,13 +70,18 @@ public class SlangWord {
                 case "10":
                 	Functions.quizFindSlangWord();                  
                     break;
-            }
-            if (exitFlag) {
-                break;
+                case "11":
+                	Functions.clearHistory();                  
+                    break;
+                case "12":
+                	Functions.exitApp();                  
+                    break;
+                default:
+                    System.out.println(">> Your option is invalid! Please try again.");
+                    
             }
             System.out.println();
             showMenu();
         }
-		System.out.println("Hallo");
 	}
 }
