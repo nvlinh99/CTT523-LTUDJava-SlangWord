@@ -494,6 +494,7 @@ public class Functions {
 	}
 	
 	public static void exitApp() {
+		System.out.flush();
 		updateDataToFile();
 		backupHistory();
 		System.exit(0);
