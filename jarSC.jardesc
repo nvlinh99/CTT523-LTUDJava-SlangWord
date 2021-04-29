@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="WINDOWS-1252" standalone="no"?>
+<jardesc>
+    <jar path="CTT523-LTUDJava-SlangWord/20424048.jar"/>
+    <options buildIfNeeded="true" compress="true" descriptionLocation="/CTT523-LTUDJava-SlangWord/jarSC.jardesc" exportErrors="true" exportWarnings="true" includeDirectoryEntries="true" overwrite="true" saveDescription="true" storeRefactorings="false" useSourceFolders="false"/>
+    <storedRefactorings deprecationInfo="true" structuralOnly="false"/>
+    <selectedProjects/>
+    <manifest generateManifest="true" mainClassHandleIdentifier="=CTT523-LTUDJava-SlangWord/src&lt;SlangWord{SlangWord.java[SlangWord" manifestLocation="/CTT523-LTUDJava-SlangWord/META-INF/MANIFEST.MF" manifestVersion="1.0" reuseManifest="false" saveManifest="true" usesManifest="true">
+        <sealing sealJar="true">
+            <packagesToSeal/>
+            <packagesToUnSeal/>
+        </sealing>
+    </manifest>
+    <selectedElements exportClassFiles="true" exportJavaFiles="false" exportOutputFolder="false">
+        <folder path="/CTT523-LTUDJava-SlangWord/Data"/>
+        <file path="/CTT523-LTUDJava-SlangWord/.classpath"/>
+        <file path="/CTT523-LTUDJava-SlangWord/.project"/>
+        <folder path="/CTT523-LTUDJava-SlangWord/.settings"/>
+        <folder path="/CTT523-LTUDJava-SlangWord/META-INF"/>
+        <javaElement handleIdentifier="=CTT523-LTUDJava-SlangWord/src"/>
+    </selectedElements>
+</jardesc>

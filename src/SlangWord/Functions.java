@@ -20,9 +20,10 @@ import java.util.Scanner;
 */
 
 public class Functions {
-	private static final String SLANG_WORD_INPUT = "./Data/slang.txt";
-	private static final String SLANG_WORD_INPUT_DEFAULT = "./Data/default_slang.txt";
-	private static final String SLANG_WORD_HISTORY = "./Data/backup_history.txt";
+	private static final String rootPath = System.getProperty("user.dir");
+	private static final String SLANG_WORD_INPUT = rootPath + "/Data/slang.txt";
+	private static final String SLANG_WORD_INPUT_DEFAULT = rootPath + "/Data/default_slang.txt";
+	private static final String SLANG_WORD_HISTORY = rootPath + "/Data/backup_history.txt";
 	public static HashMap<String, List<String>> hashMap = new HashMap<String, List<String>>();
 	public static List<String> historySlangWord = new ArrayList<>();
 	public static Scanner inputWord = new Scanner(System.in);
